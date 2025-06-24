@@ -24,6 +24,7 @@ $result = $conn->query("SELECT u.id, u.name, u.login, u.active, r.name AS role
 <div class="container mt-5">
   <h2 class="mb-4">Пользователи</h2>
   <a href="index.php" class="btn btn-sm btn-secondary mb-3">← Назад</a>
+  <a href="create_user.php" class="btn btn-sm btn-primary mb-3 ms-2">Добавить пользователя</a>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -32,6 +33,7 @@ $result = $conn->query("SELECT u.id, u.name, u.login, u.active, r.name AS role
         <th>Логин</th>
         <th>Роль</th>
         <th>Активен</th>
+        <th>Действия</th>
       </tr>
     </thead>
     <tbody>
@@ -42,6 +44,12 @@ $result = $conn->query("SELECT u.id, u.name, u.login, u.active, r.name AS role
         <td><?= htmlspecialchars($user['login']) ?></td>
         <td><?= $user['role'] ?></td>
         <td><?= $user['active'] ? '✅' : '❌' ?></td>
+        <td>
+          <a href="edit_user.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-warning">Редактировать</a>
+          <a href="toggle_user.php?id=<?= $user['id'] ?>" class="btn btn-sm btn-secondary">
+            <?= $user['active'] ? 'Деактивировать' : 'Активировать' ?>
+          </a>
+        </td>
       </tr>
       <?php endwhile; ?>
     </tbody>

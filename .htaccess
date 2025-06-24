@@ -1,0 +1,10 @@
+<IfModule mod_php>
+# Важно: путь в кавычках
+# и
+# /Applications/MAMP/htdocs/luckin_coffee/includes/footer.php
+# должен точно совпадать с тем, где у вас лежат эти файлы.
+#Если ваш проект находится в другом месте, поправьте путь соответственно.
+  php_value auto_prepend_file "/Applications/MAMP/htdocs/luckin_coffee/includes/header.php"
+  # а этот — после любого .php
+  php_value auto_append_file  "/Applications/MAMP/htdocs/luckin_coffee/includes/footer.php"
+</IfModule>

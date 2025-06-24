@@ -32,19 +32,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         $roleId = match ($role) {
-            'admin' => 1,
-            'cook' => 2,
-            'client' => 3,
-            default => 3
+            'admin'  => 1,
+            'client' => 2,
+            'cook'   => 3,
+            default  => 2,
         };
 
         $stmt = $conn->prepare("INSERT INTO users (login, password, role_id, name, photo, active) VALUES (?, ?, ?, '', '', 1)");
         $stmt->bind_param("ssi", $username, $hashedPassword, $roleId);
 
         if ($stmt->execute()) {
-            echo "Регистрация прошла успешно. <a href='login.php'>Войти</a>";
+            header('Location: login.php');
+            exit;
         } else {
-            echo "Ошибка при регистрации: " . $stmt->error;
+            echo "Ошибка при регистрации: " . htmlspecialchars($stmt->error);
         }
 
         $stmt->close();
