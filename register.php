@@ -1,5 +1,3 @@
-
-
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -60,21 +58,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <!-- <link rel="stylesheet" href="assets/style.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h2>Регистрация</h2>
-    <form method="post" action="">
-        <label>Логин: <input type="text" name="username" required></label><br><br>
-        <label>Пароль: <input type="password" name="password" required></label><br><br>
-        <label>Роль:
-            <select name="role">
-                <option value="client">Клиент</option>
-                <option value="cook">Повар</option>
-                <option value="admin">Администратор</option>
-            </select>
-        </label><br><br>
-        <button type="submit">Зарегистрироваться</button>
-    </form>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Регистрация</h2>
+                        <form method="post" action="">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Логин</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Пароль</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="role" class="form-label">Роль</label>
+                                <select class="form-select" id="role" name="role">
+                                    <option value="client">Клиент</option>
+                                    <option value="cook">Повар</option>
+                                    <option value="admin">Администратор</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

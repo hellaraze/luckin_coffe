@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'client') {
 }
 
 // Получаем список блюд
-$result = $conn->query("SELECT id, name, price FROM menu_items WHERE active = 1");
+$result = $conn->query("SELECT id, name, price FROM menu_items");
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +39,7 @@ $result = $conn->query("SELECT id, name, price FROM menu_items WHERE active = 1"
         <?php endwhile; ?>
     </div>
     <a href="cart.php" class="btn btn-secondary">Перейти в корзину</a>
+    <a href="index.php" class="btn btn-outline-primary mt-3 ms-2">🏠 В главное меню</a>
 </div>
 </body>
 </html>

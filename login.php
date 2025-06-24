@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         header("Location: client/index.php");
                         break;
                     case 'cook':
-                        header("Location: cook/index.php");
+                        header("Location: cook/orders.php");
                         break;
                     default:
                         header("Location: login.php");

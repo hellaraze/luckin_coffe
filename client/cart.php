@@ -1,5 +1,3 @@
-
-
 <?php
 session_start();
 require_once '../includes/db.php';
@@ -68,7 +66,10 @@ if ($orderId) {
     <?php else: ?>
         <p>Ваша корзина пуста.</p>
     <?php endif; ?>
-    <a href="menu.php" class="btn btn-secondary mt-3">← Вернуться в меню</a>
+    <div class="d-flex gap-2 mt-3">
+        <a href="menu.php" class="btn btn-secondary">← Вернуться в меню</a>
+        <a href="index.php" class="btn btn-outline-primary">🏠 В главное меню</a>
+    </div>
 </div>
 </body>
 </html>

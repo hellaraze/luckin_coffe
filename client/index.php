@@ -16,12 +16,13 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'client') {
 </head>
 <body>
 <div class="container mt-5">
-    <h2>Добро пожаловать, <?= htmlspecialchars($_SESSION['login']) ?>!</h2>
+    <h2>Добро пожаловать, <?= isset($_SESSION['login']) ? htmlspecialchars($_SESSION['login']) : 'гость' ?>!</h2>
     <p>Вы вошли как клиент.</p>
 
     <div class="list-group mt-4">
         <a href="menu.php" class="list-group-item list-group-item-action">Меню</a>
         <a href="cart.php" class="list-group-item list-group-item-action">Моя корзина</a>
+        <a href="order_history.php" class="list-group-item list-group-item-action">История заказов</a>
         <a href="../logout.php" class="list-group-item list-group-item-action text-danger">Выйти</a>
     </div>
 </div>

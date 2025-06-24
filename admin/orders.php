@@ -43,7 +43,8 @@ $result = $conn->query($sql);
         <td><?= htmlspecialchars($order['client_name']) ?></td>
         <td>
           <?php
-            echo match($order['status']) {
+            echo match((int)$order['status']) {
+              0 => 'Создан',
               1 => 'Принят',
               2 => 'Готовится',
               3 => 'Готов',
